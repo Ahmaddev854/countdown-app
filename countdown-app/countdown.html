@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="countdown.css">
+  <title>Document</title>
+
+</head>
+<body>
+  <div class="container">
+    <div id="day" class="item">00</div>
+    <div id="hour" class="item">00</div>
+    <div id="minut" class="item">00</div>
+    <div id="second" class="item">00</div>
+    <div id="ending" class="item"></div>
+  </div>
+  
+  <script>
+    
+    setInterval(countdown, 1000);
+    function countdown() {
+      const enddate = new Date("Jul 25, 2024 16:37:52");
+      const currentdate = new Date()
+      const  remaingtime = enddate.getTime() - currentdate.getTime();
+      const day = Math.floor(remaingtime/(1000*60*60*24));
+      const hour = Math.floor((remaingtime % (1000*60*60*24)) / (1000* 60 *60))
+      const minut = Math.floor((remaingtime % (1000 * 60 *60)) / (1000 * 60))
+      const second = Math.floor((remaingtime % (1000 * 60)) / (1000))
+
+      document.getElementById("day").innerHTML = day + "d";
+      document.getElementById("hour").innerHTML = hour + "h";
+      document.getElementById("minut").innerHTML = minut + "m";
+      document.getElementById("second").innerHTML = second + "s";
+     
+      if(remaingtime < 0){
+        clearInterval(x);
+        document.getElementById("ending").innerHTML = "Time is overed";
+      }
+     
+    
+    
+      
+    }
+   
+    
+    
+  </script>
+</body>
+
+</html>
