@@ -1,1 +1,1 @@
-these are my some frontend projects
+this is my first repo
